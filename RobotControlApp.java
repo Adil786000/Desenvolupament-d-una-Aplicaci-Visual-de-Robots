@@ -104,19 +104,37 @@ class ControlRobotPanel extends JPanel {
 }
 
 class Robot {
-    private String estado;
+    private Estado estado;
     private String direccion;
 
+    public enum Estado {
+        PARADO,
+        AVANZANDO,
+        RETROCEDIENDO;
+
+        public String getEstado() {
+            switch (this) {
+                case PARADO:
+                    return "parado";
+                case AVANZANDO:
+                    return "avanzando";
+                case RETROCEDIENDO:
+                    return "retrocediendo";
+            }
+            return "";
+        }
+    }
+
     public Robot() {
-        this.estado = "parado";
+        this.estado = Estado.PARADO;
         this.direccion = "norte";
     }
 
-    public String obtenerEstado() {
+    public Estado obtenerEstado() {
         return estado;
     }
 
-    public void cambiarEstado(String estado) {
+    public void cambiarEstado(Estado estado) {
         this.estado = estado;
     }
 
@@ -129,18 +147,18 @@ class Robot {
     }
 
     public void moverAdelante() {
-        if (estado.equals("parado")) {
-            cambiarEstado("avanzando");
-        } else if (estado.equals("avanzando")) {
-            cambiarEstado("parado");
+        if (estado.equals(Estado.PARADO)) {
+            cambiarEstado(Estado.AVANZANDO);
+        } else if (estado.equals(Estado.AVANZANDO)) {
+            cambiarEstado(Estado.PARADO);
         }
     }
 
     public void moverAtras() {
-        if (estado.equals("parado")) {
-            cambiarEstado("retrocediendo");
-        } else if (estado.equals("retrocediendo")) {
-            cambiarEstado("parado");
+        if (estado.equals(Estado.PARADO)) {
+            cambiarEstado(Estado.RETROCEDIENDO);
+        } else if (estado.equals(Estado.RETROCEDIENDO)) {
+            cambiarEstado(Estado.PARADO);
         }
     }
 
@@ -179,7 +197,7 @@ class Robot {
     }
 
     public void guardarEstado(String filePath) {
-        //código para guardar el estado del robot
+        // código para guardar el estado del robot
         System.out.println("Guardando estado del robot...");
     }
 
