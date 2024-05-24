@@ -30,5 +30,34 @@ public class RobotControlApp extends Application {
             robot.mover(x, y);
         });
 
+        Button turnButton = (Button) root.getChildren().get(1);
+        turnButton.setOnAction(e -> {
+            int ángulo = Integer.parseInt(((TextField) root.getChildren().get(2)).getText());
+            robot.girar(ángulo);
+        });
 
+        // Mostrar la GUI
+        Scene scene = new Scene(root, 300, 200);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+
+class Robot {
+    private int x;
+    private int y;
+
+    public void mover(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void girar(int ángulo) {
+        // Implementar el giro del robot
+    }
+}
     }
