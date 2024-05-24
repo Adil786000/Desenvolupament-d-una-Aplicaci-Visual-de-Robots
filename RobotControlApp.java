@@ -11,3 +11,13 @@ public class RobotControlApp extends Application {
     private Robot robot;
 
     @Override
+    public void start(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+        this.robot = new Robot();
+
+        // Crear la GUI
+        VBox root = new VBox(10);
+        root.GetChildren().add(new Button("Mover"));
+        
+
+    }
