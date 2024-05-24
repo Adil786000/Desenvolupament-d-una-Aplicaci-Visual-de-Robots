@@ -17,13 +17,13 @@ public class RobotControlApp extends Application {
 
         // Crear la GUI
         VBox root = new VBox(10);
-        root.GetChildren().add(new Button("Mover"));
-        root.GetChildren().add(new Button("Girar"));
-        root.GetChildren().add(new TextField("Introducir el valor del movimiento"));
-        root.GetChildren().add(new TextField("Introducir el valor del giro"));
+        root.getChildren().add(new Button("Mover"));
+        root.getChildren().add(new Button("Girar"));
+        root.getChildren().add(new TextField("Introducir el valor del movimiento"));
+        root.getChildren().add(new TextField("Introducir el valor del giro"));
 
-        //Configurar los controladoresde eventos
-        Button moveButton = (Button) root.GetChildren().get(0);
+        //Configurar los controladores de eventos
+        Button moveButton = (Button) root.getChildren().get(0);
         moveButton.setOnAction(e -> {
             int x = Integer.parseInt(((TextField) root.getChildren().get(2)).getText());
             int y = Integer.parseInt(((TextField) root.getChildren().get(3)).getText());
@@ -60,4 +60,3 @@ class Robot {
         // Implementar el giro del robot
     }
 }
-    }
