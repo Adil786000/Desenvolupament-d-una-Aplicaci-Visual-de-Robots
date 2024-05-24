@@ -179,7 +179,7 @@ class Robot {
     }
 
     public void guardarEstado(String filePath) {
-        // código para guardar el estado del robot
+        //código para guardar el estado del robot
         System.out.println("Guardando estado del robot...");
     }
 
